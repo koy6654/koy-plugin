@@ -1,0 +1,16 @@
+{
+  "name": "koy",
+  "owner": {
+    "name": "koy",
+    "email": "koy410994@gmail.com"
+  },
+  "description": "Koy의 Claude Code plugin 마켓플레이스.",
+  "plugins": [
+    {
+      "name": "koy-dev",
+      "source": "./plugins/koy-dev",
+      "description": "Koy의 공통 개발 프로세스: 기능 개발·과제·버그 흐름과 그 단계들. 프로젝트별 차이는 .claude/koy-config.md로 맞춘다.",
+      "category": "engineering"
+    }
+  ]
+}
