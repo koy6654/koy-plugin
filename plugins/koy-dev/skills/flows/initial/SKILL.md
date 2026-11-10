@@ -3,11 +3,14 @@ name: initial
 description: 초기 구축·과제. grill → resting → split을 차례로 실행하고 issue 파일까지 만든 뒤 멈춘다.
 argument-hint: "<기획서·과제 설명 | 이어할 scratch 폴더 경로>"
 disable-model-invocation: true
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
 # initial
 
-시작할 때 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
+## 시작 전 실행
+
+`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## step 순서
 

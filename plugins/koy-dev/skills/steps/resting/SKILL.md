@@ -3,13 +3,16 @@ name: resting
 description: grill이 정한 요구사항을 실제 코드와 원천에 맞대어 빈틈과 놓친 점을 찾고, resting.tmp.md를 남긴다.
 argument-hint: "[scratch 폴더 경로 (같은 세션이면 생략)]"
 disable-model-invocation: true
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
 # resting
 
-시작할 때 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
-
 grill 다음의 검증 step. 정한 요구사항을 실제 코드와 원천에 맞대어 **빈틈**과 **놓친 점**을 찾고, implement가 따라갈 **resting.tmp.md**를 만든다. 분석만 한다. 쓰기는 `<scratch 폴더>` 안에서만 한다.
+
+## 시작 전 실행
+
+`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## 근거 원칙
 

@@ -3,11 +3,14 @@ name: feature
 description: 기능 개발. grill → resting(조건부) → implement → ready를 차례로 실행한다.
 argument-hint: "<요청 | 이어할 scratch 폴더 경로>"
 disable-model-invocation: true
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
 # feature
 
-시작할 때 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
+## 시작 전 실행
+
+`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## step 순서
 

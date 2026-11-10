@@ -4,9 +4,7 @@
 
 - **step**: flow를 이루는 작업 단위의 skill. `skills/steps/`
 - **flow**: step들을 정해진 순서로 실행하는 skill. `skills/flows/`
-- **setup**: 개별 저장소와 koy-dev를 연결하는 skill. `skills/setup/`
 - **scratch**: 세션 하나의 기록을 모아 두는 임시 폴더. 저장소의 `.scratch/`
-- **koy-config**: step별로 쓸 저장소 skill을 적은 파일. 저장소의 `.claude/koy-config.md`
 
 ## scratch 규칙
 
@@ -35,13 +33,9 @@ step 하나가 끝날 때마다 scratch 폴더에 `<step>.tmp.md`를 하나 남�
 
 koy-dev skill과 저장소 skill이 함께 사용하는 규칙이다.
 
-### skill 사용 규칙
-
-koy-config를 skill이 시작할 때마다 읽는다. 없거나 저장소 skill 목록이 달라졌으면 이 파일이 있는 폴더 기준 `setup/sync/SKILL.md`를 따른 뒤 돌아온다.
-
 ### skill 겹침 규칙
 
-겹침은 step과 저장소 skill이 같은 일을 하는 경우다. koy-config에 적혀 있다.
+겹침은 step과 저장소 skill이 같은 일을 하는 경우다. 저장소 문서(ADR 포함)에 정해진 것이 있으면 따른다.
 겹치는 step 대신 저장소 skill을 실행하고, 그 skill이 남긴 문서를 그 step의 기록으로 쓴다. 다섯 칸은 없어도 된다.
 
 ## step 실행 규칙

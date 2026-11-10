@@ -3,15 +3,18 @@ name: implement
 description: 요청 설명·issue 파일·scratch 폴더 경로를 받아 승인된 계획대로 필요한 만큼만 구현하고, 실제 동작으로 증명한다.
 argument-hint: "<요청 설명 | issue 파일 경로 | scratch 폴더 경로 (같은 세션이면 생략)>"
 disable-model-invocation: true
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
 <!-- 4번 검증의 "실제 동작으로 증명" 원칙과 1·3번의 데이터 형태, 작은 단위 원칙은 cursor/plugins 의 pstack (principle-prove-it-works, principle-model-the-domain, principle-sequence-verifiable-units) 을 바탕으로 고쳐 썼다. MIT License, Copyright (c) 2026 Lauren Tan. 출처는 ORIGIN.md. -->
 
 # implement
 
-시작할 때 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
-
 승인받은 계획대로, **필요한 만큼만** 만들고, **실제 동작으로** 증명한다. 커밋은 하지 않는다.
+
+## 시작 전 실행
+
+`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## 0. 규칙 다시 읽기
 

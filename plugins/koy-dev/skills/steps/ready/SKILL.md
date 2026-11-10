@@ -3,17 +3,20 @@ name: ready
 description: 커밋 전에 "규칙을 지켰나"와 "요구한 걸 만들었나"를 두 축으로 나눠 검증한다. 고치지 않고 보고만 한다.
 argument-hint: "[scratch 폴더 경로 또는 issue 파일 경로 (같은 세션이면 생략)]"
 disable-model-invocation: true
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
 # ready
-
-시작할 때 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 커밋 전 검증 전용 step. 고치지 않고, stage·commit·push 하지 않는다. 사용자가 고친 뒤 다시 부른다.
 
 검증은 **두 축**이다. 규칙 축은 "규칙을 지켰나", 기준 문서 축은 "요구한 걸 만들었나"를 본다. 규칙을 전부 지키고도 엉뚱한 것을 만들 수 있기 때문에 두 축을 따로 판정하고, 보고에서도 섞지 않는다.
 
 **끝까지 돈다.** 하나가 실패해도 나머지 검사를 계속하고, 실패를 한 번에 모아 보고한다. 앞 검사 실패 때문에 실행 자체가 불가능한 검사만 "미수행 (이유)"로 적는다.
+
+## 시작 전 실행
+
+`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## 1. 변경 범위
 

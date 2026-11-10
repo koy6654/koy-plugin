@@ -3,11 +3,14 @@ name: bugfix
 description: 버그 수정. diagnose → ready를 차례로 실행한다.
 argument-hint: "<증상, 재현 방법, 기대한 동작 | 이어할 scratch 폴더 경로>"
 disable-model-invocation: true
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
 # bugfix
 
-시작할 때 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
+## 시작 전 실행
+
+`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## step 순서
 

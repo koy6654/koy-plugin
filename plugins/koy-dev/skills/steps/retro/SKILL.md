@@ -1,23 +1,26 @@
 ---
 name: retro
-description: scratch가 끝난 뒤 세션과 기록을 돌아보고, 문제점과 고칠 곳(저장소 본래의 자리, koy-config, koy 공통 skill)을 retro.tmp.md에 남긴다. 반영은 close가 한다.
+description: scratch가 끝난 뒤 세션과 기록을 돌아보고, 문제점과 고칠 곳(저장소 본래의 자리, koy 공통 skill)을 retro.tmp.md에 남긴다. 반영은 close가 한다.
 argument-hint: "[scratch 폴더 경로 (같은 세션이면 생략)]"
 disable-model-invocation: true
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
 <!-- mattpocock/skills 의 retro 를 바탕으로 고쳐 썼다. MIT License, Copyright (c) 2026 Matt Pocock. 출처는 ORIGIN.md. -->
 
 # retro
 
-시작할 때 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
-
 만든 코드가 아니라 **개발 환경**을 고칠 거리를 찾는다. 다음 scratch에서 같은 실수가 나지 않게 하는 것이 목적이다. 커밋한 뒤, close 전에 실행한다.
+
+## 시작 전 실행
+
+`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## 1. 원천 읽기
 
 - 돌아볼 세션의 기록. 지정이 없으면 현재 세션.
 - 그 scratch의 `<scratch 폴더>`의 기록. 특히 각 문서의 「물어본 것」과 `ready*.tmp.md`
-- 이 프로젝트의 `CLAUDE.md`와 그것이 가리키는 문서, `.claude/koy-config.md`
+- 이 프로젝트의 `CLAUDE.md`와 그것이 가리키는 문서
 
 ## 2. 문제점 찾기
 
@@ -39,7 +42,6 @@ disable-model-invocation: true
 | **CLAUDE.md와 저장소 문서** | 계속 지킬 규칙, 자주 찾는 정보의 위치(시안 기준, 정책서 위치, 검증 명령어, 실제 동작 확인 방법). CLAUDE.md에는 짧게 위치만 가리키고 내용은 문서에 둔다 |
 | **GLOSSARY·ADR** | 도메인 용어, 되돌리기 어려운 결정 |
 | **저장소 skill** (`.claude/skills/`) | 이 저장소에서 반복되는 절차 |
-| **koy-config** | 어느 step에서 어떤 저장소 skill을 쓰나, 겹침. 저장소 skill이 바뀐 탓이면 `/koy-dev:sync`를 안내한다 |
 | **koy 공통 skill** | 어느 프로젝트에서나 맞는 방법론: step 순서, 원칙, 완료 기준, 질문 방식 |
 
 ## 4. retro.tmp.md 쓰기
@@ -52,7 +54,7 @@ disable-model-invocation: true
 ## 문제점과 고칠 곳
 ### <문제 한 줄>
 - 근거: <세션이나 기록에서 일어난 일>
-- 고칠 곳: <자동 검사 | CLAUDE.md·문서 | GLOSSARY·ADR | 저장소 skill | koy-config | koy 공통 skill>
+- 고칠 곳: <자동 검사 | CLAUDE.md·문서 | GLOSSARY·ADR | 저장소 skill | koy 공통 skill>
 - 제안: <추가·수정할 문장이나 검사>
 
 ## 물어본 것

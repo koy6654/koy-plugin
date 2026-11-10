@@ -3,13 +3,12 @@ name: grill
 description: 모호한 요청을 질의응답으로 정리해 결정 트리를 비우고, 요구사항 문서로 남긴다.
 argument-hint: "<기획서 경로·링크 또는 요청 설명>"
 disable-model-invocation: true
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
 <!-- 결정 트리·frontier·라운드 프로토콜은 mattpocock/skills 의 grilling 을 바탕으로 고쳐 썼다. MIT License, Copyright (c) 2026 Matt Pocock. 출처는 ORIGIN.md. -->
 
 # grill
-
-시작할 때 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 요구사항 정리 전용 step. 이 step이 끝나면 **무엇을 만들지**가 정해져 있다.
 
@@ -18,6 +17,10 @@ disable-model-invocation: true
 | 코드·원천과의 깊은 대조, 빈틈 분석 | `/koy-dev:resting` |
 | issue 나누기 | `/koy-dev:split` |
 | 코드 수정 | `/koy-dev:implement` |
+
+## 시작 전 실행
+
+`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## 0. 준비
 

@@ -19,7 +19,6 @@ Koy의 개발 방법론을 담은 Claude Code plugin. 프로젝트 정보와 ski
 | step | `/koy-dev:diagnose` | 버그 진단 |
 | step | `/koy-dev:retro` | 회고 |
 | step | `/koy-dev:close` | 커밋한 뒤 저장소 반영, ADR, scratch 정리 |
-| setup | `/koy-dev:sync` | step별로 쓸 저장소 skill을 정해 koy-config에 남김 |
 
 ## 무엇을 쓸까
 
@@ -35,6 +34,5 @@ Koy의 개발 방법론을 담은 Claude Code plugin. 프로젝트 정보와 ski
 ## 저장소에 생기는 파일
 
 ```
-.claude/koy-config.md   koy-config
 .scratch/               scratch. git에 올리지 않으려면 .git/info/exclude에 추가
 ```

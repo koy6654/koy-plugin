@@ -3,15 +3,18 @@ name: split
 description: resting.tmp.md를 새 세션 하나에 끝나는 issue로 나누고, issue마다 선행 issue를 적은 파일을 만든다.
 argument-hint: "[scratch 폴더 경로 (같은 세션이면 생략)]"
 disable-model-invocation: true
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
 <!-- 나누기 규칙은 mattpocock/skills 의 to-tickets 를 바탕으로 고쳐 썼다. MIT License, Copyright (c) 2026 Matt Pocock. 출처는 ORIGIN.md. -->
 
 # split
 
-시작할 때 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
-
 resting.tmp.md를 **issue**(새 세션 하나에 끝나는 작업 하나를 적은 파일)로 나눈다. 나누기만 한다. 구현은 사용자가 issue마다 새 세션에서 `/koy-dev:implement`로 진행한다.
+
+## 시작 전 실행
+
+`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## 1. 불러오기
 

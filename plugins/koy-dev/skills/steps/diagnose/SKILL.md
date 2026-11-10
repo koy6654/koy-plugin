@@ -3,17 +3,20 @@ name: diagnose
 description: 버그와 성능 저하를 진단한다. 빨갛게 실패하는 확인 루프를 먼저 만들고, 재현과 축소, 가설, 계측을 거쳐 원인을 고친다.
 argument-hint: "<증상, 재현 방법, 기대한 동작>"
 disable-model-invocation: true
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
 <!-- mattpocock/skills 의 diagnosing-bugs 를 바탕으로 줄여 고쳐 썼다. MIT License, Copyright (c) 2026 Matt Pocock. 출처는 ORIGIN.md. -->
 
 # diagnose
 
-시작할 때 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
-
 버그 전용 step. **원인을 찾기 전에는 고치지 않는다.**
 
 명령과 출력을 보여줄 때는 비밀값을 `<REDACTED>`로 가린다.
+
+## 시작 전 실행
+
+`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## 1. 확인 루프 만들기
 
