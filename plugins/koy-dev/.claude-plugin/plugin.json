@@ -1,22 +1,23 @@
 {
   "name": "koy-dev",
-  "version": "0.3.0",
-  "description": "Koy의 공통 개발 프로세스: 기능 개발·과제·버그 흐름과 그 단계들(요구사항 정리, 코드 대조, 작업 나누기, 구현, 커밋 전 검증, 버그 진단, 회고). 프로젝트별 차이는 .claude/koy-config.md로 맞춘다.",
+  "version": "0.6.0",
+  "description": "Koy의 개발 방법론: feature(기능 개발), initial(초기 구축), bugfix(버그 수정) flow와 그 step들. 프로젝트 정보와 skill은 현재 저장소에서 찾는다.",
   "author": {
     "name": "Koy"
   },
   "keywords": [
     "workflow",
+    "flow",
+    "step",
     "grill",
-    "spec",
     "implement",
-    "review",
+    "ready",
     "diagnose",
-    "retro"
+    "close"
   ],
   "skills": [
     "./skills/flows/feature",
-    "./skills/flows/build",
+    "./skills/flows/initial",
     "./skills/flows/bugfix",
     "./skills/steps/grill",
     "./skills/steps/resting",
@@ -25,6 +26,7 @@
     "./skills/steps/ready",
     "./skills/steps/diagnose",
     "./skills/steps/retro",
+    "./skills/steps/close",
     "./skills/setup/sync"
   ]
 }

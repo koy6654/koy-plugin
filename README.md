@@ -4,7 +4,7 @@ Koy의 Claude Code plugin 마켓플레이스.
 
 | plugin | 설명 |
 | --- | --- |
-| [`koy-dev`](./plugins/koy-dev/README.md) | 공통 개발 프로세스: 기능 개발·과제·버그 흐름과 그 단계들. 프로젝트별 차이는 `.claude/koy-config.md`로 맞춘다 |
+| [`koy-dev`](./plugins/koy-dev/README.md) | 개발 방법론: feature(기능 개발), initial(초기 구축), bugfix(버그 수정) flow와 그 step들 |
 
 ## 설치
 
@@ -20,7 +20,6 @@ claude plugin install koy-dev@koy
 ```
 .claude-plugin/marketplace.json   마켓플레이스 정의. 배포할 plugin 목록과 위치
 plugins/koy-dev/                  배포되는 plugin. 사용자 컴퓨터에는 이 폴더만 복사된다
-ROADMAP.md                        관리자용 메모 (배포 안 됨)
 ```
 
 ## 고치고 배포하기
