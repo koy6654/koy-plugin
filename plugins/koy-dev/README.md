@@ -35,4 +35,23 @@ Koy의 개발 방법론을 담은 Claude Code plugin. 프로젝트 정보와 ski
 
 ```
 .scratch/               scratch. git에 올리지 않으려면 .git/info/exclude에 추가
+.claude/koy-dev.md      저장소별 flow 순서 (선택). 없으면 기본 순서
+```
+
+`.claude/koy-dev.md` 예시.
+
+```markdown
+---
+name: <저장소 이름>
+description: <저장소 한 줄 설명>
+---
+
+## feature
+grill → resting → implement → `storybook-check` → ready → `jira-comment`
+
+## initial
+grill → resting → split → `jira-create`
+
+## bugfix
+diagnose → ready → `jira-comment`
 ```

@@ -40,7 +40,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 | --- | --- |
 | **자동 검사** (lint 규칙, 타입, 테스트, pre-commit, CI) | 정해진 패턴으로 잡을 수 있는 기계적인 실수. 규칙 문장보다 검사를 먼저 고려한다. 이미 있는데 연결이 안 된 검사가 있는지 먼저 본다 |
 | **CLAUDE.md와 저장소 문서** | 계속 지킬 규칙, 자주 찾는 정보의 위치(시안 기준, 정책서 위치, 검증 명령어, 실제 동작 확인 방법). CLAUDE.md에는 짧게 위치만 가리키고 내용은 문서에 둔다 |
-| **GLOSSARY·ADR** | 도메인 용어, RULES.md 「ADR 규칙」에 해당하는 결정 |
+| **GLOSSARY·ADR** | 도메인 용어, RULES.md `ADR 규칙`에 해당하는 결정 |
 | **저장소 skill** (`.claude/skills/`) | 이 저장소에서 반복되는 절차 |
 | **koy 공통 skill** | 어느 프로젝트에서나 맞는 방법론: step 순서, 원칙, 완료 기준, 질문 방식 |
 
@@ -58,7 +58,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 - 제안: <추가·수정할 문장이나 검사>
 
 ## 물어본 것
-<RULES.md 「scratch 기록 규칙」의 「물어본 것」 형식. 없으면 "없음">
+<RULES.md `tmp.md 기록 규칙`의 `물어본 것` 형식. 없으면 "없음">
 ```
 
 ### 5. 보고

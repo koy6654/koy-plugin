@@ -23,7 +23,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ## 실행
 
-- 인자가 scratch 폴더 경로면 그 폴더에서 1번~2번 중 기록이 없는 첫 step부터 실행한다. 아니면 새 scratch로 1번부터 실행한다.
+- 인자가 scratch 폴더 경로면 그 폴더에서 순서 중 기록이 없는 첫 step부터 실행한다. 아니면 새 scratch로 처음부터 실행한다.
 - step마다 `${CLAUDE_PLUGIN_ROOT}/skills/steps/<step>/SKILL.md`를 읽고 따른다. 같은 세션이므로 모든 step이 이 scratch 폴더를 쓴다.
 - 승인은 받지 않는다. 멈추지 않고 다음 step으로 간다.
 - diagnose가 확인 루프를 만들지 못해 멈추면 멈춘다. ready가 ❌면 멈춘다.

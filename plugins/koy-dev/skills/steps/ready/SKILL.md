@@ -68,7 +68,5 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ### 커밋 메시지 초안
 <통과했을 때만. 저장소의 커밋 규칙(CLAUDE.md, 최근 커밋 메시지)을 따른다>
 ### 물어본 것
-<RULES.md 「scratch 기록 규칙」의 「물어본 것」 형식. 없으면 "없음">
+<RULES.md `tmp.md 기록 규칙`의 `물어본 것` 형식. 없으면 "없음">
 ```
-
-통과했고 flow 밖에서 단독으로 실행했으면, 커밋한 뒤 `/koy-dev:close`을 실행하라고 안내한다.

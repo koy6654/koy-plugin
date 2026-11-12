@@ -32,7 +32,7 @@ grill 다음의 검증 step. 정한 요구사항을 실제 코드와 원천에 �
 
 ### 2. 열린 질문 해소
 
-grill.tmp.md의 「열린 질문」을 하나씩 처리한다.
+grill.tmp.md의 `남은 것`을 하나씩 처리한다.
 
 ```markdown
 ### 열린 질문: <질문>
@@ -115,13 +115,9 @@ implement가 결과를 어떻게 증명할지 정한다.
 ## CLAUDE.md 후보
 <앞으로 계속 지킬 규칙. 없으면 "없음". 반영은 close가 한다>
 ## 물어본 것
-<RULES.md 「scratch 기록 규칙」의 「물어본 것」 형식. 없으면 "없음">
+<RULES.md `tmp.md 기록 규칙`의 `물어본 것` 형식. 없으면 "없음">
 ```
 
 ### 9. 종료
 
-resting.tmp.md 경로와 주요 발견을 보고하고 멈춘다. 다음 step을 안내한다.
-
-- 한 세션에 끝나지 않을 크기: `/koy-dev:split`
-- 그 외: `/koy-dev:implement`
-- 새 세션에서 이어가면 인자로 scratch 폴더 경로를 준다.
+resting.tmp.md 경로와 주요 발견을 보고하고 멈춘다.

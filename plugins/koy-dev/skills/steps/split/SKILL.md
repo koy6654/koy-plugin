@@ -8,7 +8,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 # split
 
-resting.tmp.md를 **issue**(새 세션 하나에 끝나는 작업 하나를 적은 파일)로 나눈다. 나누기만 한다. 구현은 사용자가 issue마다 새 세션에서 `/koy-dev:implement`로 진행한다.
+resting.tmp.md를 **issue**(새 세션 하나에 끝나는 작업 하나를 적은 파일)로 나눈다. 나누기만 한다.
 
 ## 원칙
 
@@ -77,19 +77,11 @@ issue 파일을 다 쓰면 기록 `<scratch 폴더>/split.tmp.md`를 쓴다.
 | 01 | <제목> | 없음 | 대기 |
 
 ## 물어본 것
-<RULES.md 「scratch 기록 규칙」의 「물어본 것」 형식. 없으면 "없음">
+<RULES.md `tmp.md 기록 규칙`의 `물어본 것` 형식. 없으면 "없음">
 ```
 
 이 step에서는 로컬 파일만 쓴다. 저장소가 Jira·GitHub 같은 트래커를 쓰면, 올릴지 사용자에게 묻고, 올린다면 저장소 문서에 적힌 규칙을 따른다. 규칙을 찾지 못하면 묻는다.
 
 ### 5. 종료
 
-issue 파일 목록을 보여주고 멈춘다. 진행 방법을 안내한다.
-
-```
-issue마다 새 세션에서:
-/koy-dev:implement <scratch 폴더>/issues/01-<issue 이름>.tmp.md
-→ /koy-dev:ready
-→ 커밋 후, split.tmp.md issue 목록의 상태를 "완료"로 바꾼다
-선행 issue가 모두 "완료"인 것부터 진행한다.
-```
+issue 파일 목록을 보여주고 멈춘다.

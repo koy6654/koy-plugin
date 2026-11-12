@@ -44,17 +44,6 @@ Finding _facts_ is your job, never the user's. When a frontier question needs a 
 
 The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding.
 
-### 2. 기록
+### 2. 종료
 
-`<scratch 폴더>/grill.tmp.md`를 쓴다. 칸마다 채울 내용은 다음과 같다.
-
-- **결정**: 목표, 범위, 제약, 완료 기준, 용어
-- **확인한 것**: 기존 맥락과 영향 범위
-- **남은 것**: resting에서 코드와 대조해야 할 것
-
-### 3. 종료
-
-기록 경로와 결정 요약을 보고하고 멈춘다. 다음 step을 안내한다.
-
-- 큰 기능이나 위험한 변경: `/koy-dev:resting`
-- 그 외: `/koy-dev:implement`
+기록 경로와 결정 요약을 간결하고 이해하기 쉽게 보고하고 멈춘다.
