@@ -6,23 +6,23 @@ disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
-<!-- mattpocock/skills 의 retro 를 바탕으로 고쳐 썼다. MIT License, Copyright (c) 2026 Matt Pocock. 출처는 ORIGIN.md. -->
-
 # retro
 
 만든 코드가 아니라 **개발 환경**을 고칠 거리를 찾는다. 다음 scratch에서 같은 실수가 나지 않게 하는 것이 목적이다. 커밋한 뒤, close 전에 실행한다.
 
-## 시작 전 실행
+## 원칙
 
 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
-## 1. 원천 읽기
+## 실행
+
+### 1. 원천 읽기
 
 - 돌아볼 세션의 기록. 지정이 없으면 현재 세션.
 - 그 scratch의 `<scratch 폴더>`의 기록. 특히 각 문서의 「물어본 것」과 `ready*.tmp.md`
 - 이 프로젝트의 `CLAUDE.md`와 그것이 가리키는 문서
 
-## 2. 문제점 찾기
+### 2. 문제점 찾기
 
 세션에서 이런 순간을 찾는다.
 
@@ -32,7 +32,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 - 사용자가 끼어들어 방향을 바로잡았다
 - 자동 검사가 잡을 수 있었던 실수가 ready까지 갔다
 
-## 3. 고칠 곳 정하기
+### 3. 고칠 곳 정하기
 
 문제마다 고칠 곳을 하나 고른다.
 
@@ -40,11 +40,11 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 | --- | --- |
 | **자동 검사** (lint 규칙, 타입, 테스트, pre-commit, CI) | 정해진 패턴으로 잡을 수 있는 기계적인 실수. 규칙 문장보다 검사를 먼저 고려한다. 이미 있는데 연결이 안 된 검사가 있는지 먼저 본다 |
 | **CLAUDE.md와 저장소 문서** | 계속 지킬 규칙, 자주 찾는 정보의 위치(시안 기준, 정책서 위치, 검증 명령어, 실제 동작 확인 방법). CLAUDE.md에는 짧게 위치만 가리키고 내용은 문서에 둔다 |
-| **GLOSSARY·ADR** | 도메인 용어, 되돌리기 어려운 결정 |
+| **GLOSSARY·ADR** | 도메인 용어, RULES.md 「ADR 규칙」에 해당하는 결정 |
 | **저장소 skill** (`.claude/skills/`) | 이 저장소에서 반복되는 절차 |
 | **koy 공통 skill** | 어느 프로젝트에서나 맞는 방법론: step 순서, 원칙, 완료 기준, 질문 방식 |
 
-## 4. retro.tmp.md 쓰기
+### 4. retro.tmp.md 쓰기
 
 기록 `<scratch 폴더>/retro.tmp.md`를 쓴다. 인자가 없으면 이 세션의 scratch 폴더에 쓴다.
 
@@ -61,6 +61,6 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 <RULES.md 「scratch 기록 규칙」의 「물어본 것」 형식. 없으면 "없음">
 ```
 
-## 5. 보고
+### 5. 보고
 
 심각한 순서로 보여주고 멈춘다. 반영은 하지 않는다. `/koy-dev:close`가 retro.tmp.md의 항목을 하나씩 묻고 반영한다.

@@ -1,107 +1,60 @@
 ---
 name: grill
-description: 모호한 요청을 질의응답으로 정리해 결정 트리를 비우고, 요구사항 문서로 남긴다.
+description: 모호한 요청을 design tree로 그려 라운드마다 질문하고, 공통 이해에 이르면 요구사항을 기록으로 남긴다.
 argument-hint: "<기획서 경로·링크 또는 요청 설명>"
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
-<!-- 결정 트리·frontier·라운드 프로토콜은 mattpocock/skills 의 grilling 을 바탕으로 고쳐 썼다. MIT License, Copyright (c) 2026 Matt Pocock. 출처는 ORIGIN.md. -->
-
 # grill
 
-요구사항 정리 전용 step. 이 step이 끝나면 **무엇을 만들지**가 정해져 있다.
+요구사항 정리 전용 step. 이 step이 끝나면 **무엇을 만들지**가 정해져 있다. 코드는 고치지 않는다.
 
-| 이 step에서 하지 않는 것 | 맡는 곳 |
-| --- | --- |
-| 코드·원천과의 깊은 대조, 빈틈 분석 | `/koy-dev:resting` |
-| issue 나누기 | `/koy-dev:split` |
-| 코드 수정 | `/koy-dev:implement` |
-
-## 시작 전 실행
+## 원칙
 
 `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
-## 0. 준비
+## 실행
 
-1. CLAUDE.md와 저장소 문서에 이미 정해진 기술 제약·규칙은 질문하지 않고 전제로 쓴다. 요청에 "이미 정해짐"으로 적힌 것도 같다.
-2. 요청과 관련된 코드·문서를 **가볍게** 훑는다. 목적은 질문의 질을 높이는 것이다.
-   - 코드로 확인된 사실은 사용자에게 묻지 않고 질문의 전제로 쓴다.
-   - 가볍게 본 것만으로 단정할 수 없는 사실은 **열린 질문**으로 적어 resting에 넘긴다.
-   - 사실 확인이 길어지면 새 컨텍스트로 시작하는 subagent에 맡긴다. 그 확인에 매달린 질문만 기다리고, 나머지는 지금 묻는다.
+### 1. 라운드
 
-## 1. 결정 트리와 라운드
+Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
 
-요청을 **결정 트리**로 그린다. 결정 하나는 거기 매달린 결정들로 가지를 친다.
+Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.
 
-**frontier**는 선행 결정이 모두 정해져서 **지금** 물을 수 있는 질문 전부다. 라운드마다 frontier 전체를 한 번에 묻고, 답을 받은 뒤 frontier를 다시 계산한다. 아직 답을 듣지 못한 질문에 매달린 질문은 다음 라운드로 미룬다.
-
-같은 라운드 안에서는 이 순서로 번호를 매긴다.
-
-1. 목표
-2. 범위와 제외 범위
-3. 제약
-4. 완료 기준
-5. 기존 맥락과 영향 범위
-
-라운드 형식:
+Format a round like so:
 
 ```
-❓ **Q1 - <질문 제목>**: <질문 본문. 선택지가 있으면 함께>
+❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
 
-➡️ <추천 답>
+➡️ <your recommended answer>
 
 ---
 
-❓ **Q2 - <질문 제목>**: ...
+❓ **Q2** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
+
+➡️ <your recommended answer>
 ```
 
-"네"라고 답하면 추천 답을 받아들이는 것이 되도록 질문을 쓴다. 결정은 사용자 몫이다. 라운드마다 답을 기다린다.
+Word each question so "yes" accepts your recommended answer.
 
-**완료 기준**: frontier가 비었다. 트리의 모든 가지를 돌았고, 조용히 가정한 것이 남아 있지 않다. 이때 아래가 전부 채워져 있다.
+Each round the user answers reshapes the tree: settled decisions push the frontier outward and unblock questions that depended on them. Recompute the frontier and ask the next round. A question whose answer depends on another question still open in this round belongs to a _later_ round, not this one.
 
-- [ ] 목표가 한 문장으로 쓰여 있다
-- [ ] 포함 범위와 제외 범위가 나뉘어 있다
-- [ ] 기술·일정·비즈니스 제약이 정리되어 있다
-- [ ] 완료 기준이 확인 가능한 문장으로 쓰여 있다
-- [ ] 기존 맥락과 영향 범위가 0번에서 본 사실을 근거로 정리되어 있다
-- [ ] 깊은 확인이 필요한 항목이 열린 질문으로 남아 있다
+Finding _facts_ is your job, never the user's. When a frontier question needs a fact from the environment (filesystem, tools, etc.), dispatch a sub-agent with a fresh context window to find it; don't ask the user for anything you could look up yourself. Don't block on it: a running exploration is an unsettled prerequisite, so only the questions downstream of it wait for the sub-agent to report; ask the rest of the frontier now. The _decisions_ are the user's: put each to them and wait.
 
-사용자가 "충분하다"고 하면 그 시점에서 3번으로 간다. 위 체크리스트 중 비어 있는 항목은 문서에 "미정"으로 남긴다.
+The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding.
 
-## 2. 용어와 결정
+### 2. 기록
 
-- 확정된 용어는 grill.tmp.md의 「용어」에 적는다. 저장소 용어집에 넣을지는 close가 묻는다.
-- ADR 세 조건(되돌리기 비싸다, 맥락 없이 보면 의아하다, 실제 대안을 비교해서 골랐다)을 **모두** 만족하는 결정은 grill.tmp.md의 「ADR 후보」에 적는다. ADR로 남길지는 close가 묻는다.
+`<scratch 폴더>/grill.tmp.md`를 쓴다. 칸마다 채울 내용은 다음과 같다.
 
-## 3. 요구사항 문서
+- **결정**: 목표, 범위, 제약, 완료 기준, 용어
+- **확인한 것**: 기존 맥락과 영향 범위
+- **남은 것**: resting에서 코드와 대조해야 할 것
 
-사용자가 이해가 맞다고 확인하면 `<scratch 폴더>/grill.tmp.md`를 쓴다. scratch 이름은 기능을 나타내는 짧은 영문 kebab-case로 정하고 사용자에게 보여준다.
+### 3. 종료
 
-```markdown
-# <기능 이름> 요구사항
-
-## 목표
-## 범위
-### 포함
-### 제외
-## 제약
-## 완료 기준
-## 기존 맥락과 영향 범위
-## 결정 기록
-<라운드에서 정한 결정과 이유>
-## 용어
-## ADR 후보
-## 열린 질문 (resting에서 확인)
-## 물어본 것
-<RULES.md 「scratch 기록 규칙」의 「물어본 것」 형식. 없으면 "없음">
-```
-
-## 4. 종료
-
-산출 문서 경로와 결정 요약을 보고하고 멈춘다. 다음 step을 안내한다.
+기록 경로와 결정 요약을 보고하고 멈춘다. 다음 step을 안내한다.
 
 - 큰 기능이나 위험한 변경: `/koy-dev:resting`
 - 그 외: `/koy-dev:implement`
-- 새 세션에서 이어가면 인자로 scratch 폴더 경로를 준다.
-
