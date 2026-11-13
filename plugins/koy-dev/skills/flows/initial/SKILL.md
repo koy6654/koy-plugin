@@ -10,12 +10,12 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ## 원칙
 
-`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
+- `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## step 순서
 
 1. grill
-2. resting: 기존 코드가 거의 없으면 「비슷한 기능과 비교」를 건너뛰고, 설계 결정(폴더 구조, 상태 관리, API 연동 방식, 공통 컴포넌트, 테스트 방식)을 「구현 결정」에 정리한다. 앞으로 계속 지킬 규칙은 「CLAUDE.md 후보」에 적는다. 반영은 close가 한다.
+2. resting: 기존 코드가 거의 없으면 `기존 기능과 다른 점`을 건너뛰고, 설계 결정(폴더 구조, 상태 관리, API 연동 방식, 공통 컴포넌트, 테스트 방식)을 `설계`에 정리한다. 앞으로 계속 지킬 규칙은 `CLAUDE.md 후보`에 적는다. 반영은 close가 한다.
 3. split
 4. issue마다 새 세션에서 implement → ready (사용자가 실행한다. flow는 3번에서 끝난다)
 5. close: 모든 issue가 "완료"된 뒤 사용자가 실행한다

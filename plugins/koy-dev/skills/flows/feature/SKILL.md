@@ -1,6 +1,6 @@
 ---
 name: feature
-description: 기능 개발. grill → resting(조건부) → implement → ready를 차례로 실행한다.
+description: 기능 개발. grill → resting → implement → ready를 차례로 실행한다.
 argument-hint: "<요청 | 이어할 scratch 폴더 경로>"
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
@@ -10,12 +10,12 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ## 원칙
 
-`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
+- `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## step 순서
 
 1. grill
-2. resting: grill.tmp.md를 보고 권한·결제·데이터 변경을 건드리거나, 여러 모듈이나 화면에 걸치거나, 원천과 대조가 필요하거나, `남은 것`이 있으면 실행. 아니면 건너뛴다
+2. resting
 3. implement
 4. ready
 5. close: 커밋한 뒤 사용자가 실행한다. flow는 4번에서 끝난다

@@ -12,7 +12,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ## 원칙
 
-`${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
+- `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
 
 ## 실행
 
@@ -22,7 +22,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ### 1. 준비
 
-1. 입력을 읽는다. 이 세션의 scratch이거나 scratch 폴더 경로를 받았으면 `<scratch 폴더>`의 resting.tmp.md(없으면 grill.tmp.md)를, issue 파일이면 그 파일과 resting.tmp.md를 읽고 「구현 결정」「검증 방법」「범위 밖」을 따른다. 요청 설명뿐이면 범위와 완료 기준을 먼저 한 줄씩 적는다.
+1. 입력을 읽는다. 이 세션의 scratch이거나 scratch 폴더 경로를 받았으면 `<scratch 폴더>`의 resting.tmp.md(없으면 grill.tmp.md)를, issue 파일이면 그 파일과 resting.tmp.md를 읽고 `설계`, `검증 방법`, `이번에 하지 않는 것`을 따른다. 요청 설명뿐이면 범위와 완료 기준을 먼저 한 줄씩 적는다.
 2. 바꿀 코드와 그 호출부를 확인한다. 비슷한 기존 코드가 어떻게 되어 있는지 본다.
 3. **데이터 형태를 먼저 정한다.** 상태가 있으면 흩어진 boolean 대신 상태 기계나 판별 유니온(discriminated union)으로, 분기가 여러 파일에 퍼질 것 같으면 조회 테이블로 표현한다. 지금 형태가 이미 단순하고 커질 일이 없으면 그대로 둔다.
 4. **기준 상태를 기록한다.** **검증 명령어**(CLAUDE.md, `package.json` scripts, CI 설정)와 **실제 동작 확인 방법**을 저장소에서 찾고, 없으면 묻는다. 고치기 전에 검증 명령어를 한 번 돌리고, 원래부터 실패하던 항목과 커밋되지 않은 남의 파일을 기록(`<scratch 폴더>/implement.tmp.md`, issue 파일을 받았으면 `implement-<NN>.tmp.md`)의 「기준 상태」에 먼저 적어둔다. 다시 실행할 때 「기준 상태」는 처음 기록을 유지한다.
