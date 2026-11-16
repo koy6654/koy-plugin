@@ -19,7 +19,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ### 1. 원천 읽기
 
 - 돌아볼 세션의 기록. 지정이 없으면 현재 세션.
-- 그 scratch의 `<scratch 폴더>`의 기록. 특히 각 문서의 「물어본 것」과 `ready*.tmp.md`
+- 그 scratch의 `<scratch 폴더>`의 기록. 특히 각 문서의 `물어본 것`과 `ready*.tmp.md`
 - 이 프로젝트의 `CLAUDE.md`와 그것이 가리키는 문서
 
 ### 2. 문제점 찾기
