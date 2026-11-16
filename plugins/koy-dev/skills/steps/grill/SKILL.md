@@ -46,6 +46,10 @@ Finding _facts_ is your job, never the user's. When a frontier question needs a 
 
 The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding.
 
-### 2. 종료
+### 2. 기록 쓰기
+
+`tmp.md 기록 규칙`대로 grill.tmp.md를 쓴다.
+
+### 3. 종료
 
 기록 경로와 결정 요약을 간결하고 이해하기 쉽게 보고하고 멈춘다.

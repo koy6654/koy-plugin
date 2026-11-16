@@ -50,7 +50,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ### 5. 보고
 
-결과를 화면에 보여주고 기록(`<scratch 폴더>/ready.tmp.md`, ticket 파일 기준이면 `ready-<ticket 번호>.tmp.md`)로 저장한다. 다시 실행하면 덮어쓴다. scratch 폴더가 없으면 화면에만 보여준다.
+결과를 화면에 보여주고 기록으로 저장한다. scratch 폴더가 없으면 화면에만 보여준다.
 
 ```markdown
 ## ready 결과: ✅ 통과 | ❌ 실패

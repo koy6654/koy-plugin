@@ -8,8 +8,7 @@ Koy의 개발 방법론을 담은 Claude Code plugin. 프로젝트 정보와 ski
 
 | 구분 | 명령어 | 하는 일 |
 | --- | --- | --- |
-| flow | `/koy-dev:feature` | 기능 개발: grill → resting → implement → ready |
-| flow | `/koy-dev:initial` | 초기 구축: grill → resting → split, ticket마다 implement → ready |
+| flow | `/koy-dev:feature` | 기능 개발과 초기 구축: grill → resting → split, ticket마다 implement → ready |
 | flow | `/koy-dev:bugfix` | 버그 수정: diagnose → ready |
 | step | `/koy-dev:grill` | 요구사항 정리 |
 | step | `/koy-dev:resting` | 구현 명세 |
@@ -24,7 +23,6 @@ Koy의 개발 방법론을 담은 Claude Code plugin. 프로젝트 정보와 ski
 
 ```
 기능 개발:  /koy-dev:feature <요청>
-초기 구축:  /koy-dev:initial <기획서>
 버그 수정:  /koy-dev:bugfix <증상>
 작은 수정:  /koy-dev:implement → /koy-dev:ready
 이어하기:   /koy-dev:<flow> <scratch 폴더 경로>
@@ -34,7 +32,7 @@ Koy의 개발 방법론을 담은 Claude Code plugin. 프로젝트 정보와 ski
 ## 저장소에 생기는 파일
 
 ```
-.scratch/               scratch. git에 올리지 않으려면 .git/info/exclude에 추가
+.scratch/               scratch. 처음 만들 때 .gitignore에 자동으로 추가됨
 .claude/koy-dev.md      저장소별 flow 순서 (선택). 없으면 기본 순서
 ```
 
@@ -47,11 +45,8 @@ description: <저장소 한 줄 설명>
 ---
 
 ## feature
-grill → resting → implement → `storybook-check` → ready → `jira-comment`
-
-## initial
-grill → resting → split → `jira-create`
+grill → resting → split → implement → ready
 
 ## bugfix
-diagnose → ready → `jira-comment`
+diagnose → ready
 ```
