@@ -1,7 +1,7 @@
 ---
 name: ready
 description: 커밋 전에 "규칙을 지켰나"와 "요구한 걸 만들었나"를 두 축으로 나눠 검증한다. 고치지 않고 보고만 한다.
-argument-hint: "[scratch 폴더 경로 또는 issue 파일 경로 (같은 세션이면 생략)]"
+argument-hint: "[scratch 폴더 경로 또는 ticket 파일 경로 (같은 세션이면 생략)]"
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
@@ -33,7 +33,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ### 3. 기준 문서 축
 
-1. 기준 문서를 찾는다. 이 세션의 scratch 폴더(또는 인자로 받은 경로)에서 이 순서로 찾는다: 인자로 받은 issue 파일 → resting.tmp.md → grill.tmp.md → diagnose.tmp.md(버그 수정). 못 찾으면 "기준 문서 없음, 대조 안 함"으로 적고 넘어간다. 기준 문서를 추측해서 만들지 않는다.
+1. 기준 문서를 찾는다. 이 세션의 scratch 폴더(또는 인자로 받은 경로)에서 이 순서로 찾는다: 인자로 받은 ticket 파일 → resting.tmp.md → grill.tmp.md → diagnose.tmp.md(버그 수정). 못 찾으면 "기준 문서 없음, 대조 안 함"으로 적고 넘어간다. 기준 문서를 추측해서 만들지 않는다.
 2. 대조는 **새 컨텍스트로 시작하는 subagent**에 맡긴다. 기준 문서 경로와 diff만 넘기고, 2단계의 결과나 "통과했다"는 판단은 넘기지 않는다. subagent에게 이렇게 지시한다.
    - 기준 문서의 요구사항과 완료 기준을 하나씩 diff와 맞대어 **빠진 것 / 범위를 넘은 것 / 다르게 만든 것**으로 분류한다.
    - 항목마다 근거(`파일:줄` 또는 기준 문서의 해당 문장)를 붙인다.
@@ -50,7 +50,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ### 5. 보고
 
-결과를 화면에 보여주고 기록(`<scratch 폴더>/ready.tmp.md`, issue 파일 기준이면 `ready-<NN>.tmp.md`)로 저장한다. 다시 실행하면 덮어쓴다. scratch 폴더가 없으면 화면에만 보여준다.
+결과를 화면에 보여주고 기록(`<scratch 폴더>/ready.tmp.md`, ticket 파일 기준이면 `ready-<ticket 번호>.tmp.md`)로 저장한다. 다시 실행하면 덮어쓴다. scratch 폴더가 없으면 화면에만 보여준다.
 
 ```markdown
 ## ready 결과: ✅ 통과 | ❌ 실패

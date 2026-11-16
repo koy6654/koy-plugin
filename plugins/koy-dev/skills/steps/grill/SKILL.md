@@ -13,6 +13,8 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ## 원칙
 
 - `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
+- 무엇을 만들지(동작, 범위, 완료 기준)만 묻는다. 어떻게 만들지(기술 선택, 구조, 데이터 설계, 테스트 방식)는 resting이 정한다.
+- 질문에 필요한 정보를 찾지 못하거나 읽지 못하면, 그때 사용자에게 묻는다.
 
 ## 실행
 
@@ -27,13 +29,13 @@ Format a round like so:
 ```
 ❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
 
-➡️ <your recommended answer>
+➡️ **추천 답변**: <your recommended answer>
 
 ---
 
 ❓ **Q2** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
 
-➡️ <your recommended answer>
+➡️ **추천 답변**: <your recommended answer>
 ```
 
 Word each question so "yes" accepts your recommended answer.

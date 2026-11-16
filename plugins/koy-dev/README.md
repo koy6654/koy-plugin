@@ -9,11 +9,11 @@ Koy의 개발 방법론을 담은 Claude Code plugin. 프로젝트 정보와 ski
 | 구분 | 명령어 | 하는 일 |
 | --- | --- | --- |
 | flow | `/koy-dev:feature` | 기능 개발: grill → resting → implement → ready |
-| flow | `/koy-dev:initial` | 초기 구축: grill → resting → split |
+| flow | `/koy-dev:initial` | 초기 구축: grill → resting → split, ticket마다 implement → ready |
 | flow | `/koy-dev:bugfix` | 버그 수정: diagnose → ready |
 | step | `/koy-dev:grill` | 요구사항 정리 |
 | step | `/koy-dev:resting` | 구현 명세 |
-| step | `/koy-dev:split` | 새 세션 하나에 끝나는 issue로 나누기 |
+| step | `/koy-dev:split` | 새 컨텍스트 하나에 끝나는 ticket으로 나누기 |
 | step | `/koy-dev:implement` | 승인된 계획대로 구현 |
 | step | `/koy-dev:ready` | 커밋 전 검증 |
 | step | `/koy-dev:diagnose` | 버그 진단 |
@@ -24,7 +24,7 @@ Koy의 개발 방법론을 담은 Claude Code plugin. 프로젝트 정보와 ski
 
 ```
 기능 개발:  /koy-dev:feature <요청>
-초기 구축:  /koy-dev:initial <기획서> → (issue마다 새 세션) /koy-dev:implement → /koy-dev:ready
+초기 구축:  /koy-dev:initial <기획서>
 버그 수정:  /koy-dev:bugfix <증상>
 작은 수정:  /koy-dev:implement → /koy-dev:ready
 이어하기:   /koy-dev:<flow> <scratch 폴더 경로>

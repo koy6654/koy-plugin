@@ -1,14 +1,14 @@
 ---
 name: implement
-description: 요청 설명·issue 파일·scratch 폴더 경로를 받아 승인된 계획대로 필요한 만큼만 구현하고, 실제 동작으로 증명한다.
-argument-hint: "<요청 설명 | issue 파일 경로 | scratch 폴더 경로 (같은 세션이면 생략)>"
+description: 요청 설명·ticket 파일·scratch 폴더 경로를 받아 승인된 계획에 있는 것만 구현하고, 실제 동작으로 증명한다.
+argument-hint: "<요청 설명 | ticket 파일 경로 | scratch 폴더 경로 (같은 세션이면 생략)>"
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
 # implement
 
-승인받은 계획대로, **필요한 만큼만** 만들고, **실제 동작으로** 증명한다. 커밋은 하지 않는다.
+**승인된 계획에 있는 것만** 만들고, **실제 동작으로** 증명한다. 커밋은 하지 않는다.
 
 ## 원칙
 
@@ -18,14 +18,14 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ### 0. 규칙 다시 읽기
 
-`CLAUDE.md`와 그것이 가리키는 규칙 문서를 실제로 다시 읽는다. 이번 scratch에 걸리는 규칙을 한 줄씩 **자기 말로** 다시 적어 사용자에게 보여준다. 본문에서 찾지 못한 규칙은 "본문에 없음"이라고 적는다.
+저장소의 `CLAUDE.md`와 그것이 가리키는 규칙 문서를 실제로 다시 읽는다. 이번 scratch에 걸리는 규칙을 한 줄씩 **자기 말로** 다시 적어 사용자에게 보여준다. 본문에서 찾지 못한 규칙은 "본문에 없음"이라고 적는다.
 
 ### 1. 준비
 
-1. 입력을 읽는다. 이 세션의 scratch이거나 scratch 폴더 경로를 받았으면 `<scratch 폴더>`의 resting.tmp.md(없으면 grill.tmp.md)를, issue 파일이면 그 파일과 resting.tmp.md를 읽고 `설계`, `검증 방법`, `이번에 하지 않는 것`을 따른다. 요청 설명뿐이면 범위와 완료 기준을 먼저 한 줄씩 적는다.
+1. 입력을 읽는다. 이 세션의 scratch이거나 scratch 폴더 경로를 받았으면 `<scratch 폴더>`의 resting.tmp.md(없으면 grill.tmp.md)를, ticket 파일이면 그 파일과 resting.tmp.md를 읽고 `설계`, `검증 방법`, `이번에 하지 않는 것`을 따른다. 요청 설명뿐이면 범위와 완료 기준을 먼저 한 줄씩 적는다.
 2. 바꿀 코드와 그 호출부를 확인한다. 비슷한 기존 코드가 어떻게 되어 있는지 본다.
 3. **데이터 형태를 먼저 정한다.** 상태가 있으면 흩어진 boolean 대신 상태 기계나 판별 유니온(discriminated union)으로, 분기가 여러 파일에 퍼질 것 같으면 조회 테이블로 표현한다. 지금 형태가 이미 단순하고 커질 일이 없으면 그대로 둔다.
-4. **기준 상태를 기록한다.** **검증 명령어**(CLAUDE.md, `package.json` scripts, CI 설정)와 **실제 동작 확인 방법**을 저장소에서 찾고, 없으면 묻는다. 고치기 전에 검증 명령어를 한 번 돌리고, 원래부터 실패하던 항목과 커밋되지 않은 남의 파일을 기록(`<scratch 폴더>/implement.tmp.md`, issue 파일을 받았으면 `implement-<NN>.tmp.md`)의 「기준 상태」에 먼저 적어둔다. 다시 실행할 때 「기준 상태」는 처음 기록을 유지한다.
+4. **기준 상태를 기록한다.** **검증 명령어**(CLAUDE.md, `package.json` scripts, CI 설정)와 **실제 동작 확인 방법**을 저장소에서 찾고, 없으면 묻는다. 고치기 전에 검증 명령어를 한 번 돌리고, 원래부터 실패하던 항목과 커밋되지 않은 남의 파일을 기록(`<scratch 폴더>/implement.tmp.md`, ticket 파일을 받았으면 `implement-<ticket 번호>.tmp.md`)의 「기준 상태」에 먼저 적어둔다. 다시 실행할 때 「기준 상태」는 처음 기록을 유지한다.
 
 ### 2. 계획과 승인
 

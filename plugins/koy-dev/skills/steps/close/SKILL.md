@@ -20,7 +20,7 @@ scratch를 끝내는 step. **커밋한 뒤** 실행한다. scratch 기록에서 
 
 1. 이 세션의 scratch 폴더, 또는 인자로 받은 scratch 폴더 경로를 쓴다. 둘 다 없으면 멈추고 경로를 달라고 한다.
 2. `git status`로 커밋되지 않은 변경이 있는지 본다. 있으면 멈추고, 커밋한 뒤 다시 실행하라고 안내한다.
-3. scratch 폴더에 split.tmp.md가 있으면 issue 목록을 본다. "완료"가 아닌 issue가 있으면 멈추고 그 목록을 보여준다.
+3. scratch 폴더에 split.tmp.md가 있으면 ticket 목록을 본다. "완료"가 아닌 ticket이 있으면 멈추고 그 목록을 보여준다.
 
 ### 1. 저장소에 반영
 

@@ -6,6 +6,7 @@
 - **flow**: step들을 정해진 순서로 실행하는 skill. `skills/flows/`
 - **koy-dev.md**: 저장소에 맞게 바꾼 flow 순서를 적는 파일. 저장소의 `.claude/koy-dev.md`
 - **scratch**: 세션 하나의 기록을 모아 두는 임시 폴더. 저장소의 `.scratch/`
+- **ticket**: split이 나눈 작업 하나를 적은 파일. 새 컨텍스트 하나에서 끝낼 수 있는 크기다. `<scratch 폴더>/tickets/`
 
 ## step 규칙
 
@@ -29,6 +30,14 @@ koy-dev flow를 어떻게 실행하는지에 대한 규칙이다.
 ### flow 실행 규칙
 
 flow는 `.claude/koy-dev.md`에 그 flow 섹션이 있으면 그 순서대로 실행한다. 없으면 flow의 `step 순서`를 따른다. 저장소 skill도 끝나면 `<skill 이름>.tmp.md`를 남긴다.
+step을 시작할 때마다 진행 줄을 마지막에 출력한다. 현재 step은 굵게 쓴다. ticket마다 반복하는 step은 아래에 들여써 ticket마다 한 줄씩 쓴다.
+
+진행 줄 예시:
+```
+- [initial] grill → resting → split
+  - (01 <ticket 제목>) implement → ready
+  - (02 <ticket 제목>) **implement** → ready
+```
 
 ## scratch 규칙
 
