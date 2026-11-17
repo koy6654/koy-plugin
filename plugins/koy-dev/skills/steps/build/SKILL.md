@@ -1,12 +1,12 @@
 ---
-name: implement
+name: build
 description: 요청 설명·ticket 파일·scratch 폴더 경로를 받아 승인된 계획에 있는 것만 구현하고, 실제 동작으로 증명한다.
 argument-hint: "<요청 설명 | ticket 파일 경로 | scratch 폴더 경로 (같은 세션이면 생략)>"
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
-# implement
+# build
 
 구현 전용 step. **승인된 계획에 있는 것만** 코드로 만들고, **실제 동작으로** 증명한다. 커밋은 하지 않는다.
 
@@ -24,10 +24,11 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 1. 아래 입력을 우선순위에 맞게 모두 읽는다. 내용이 서로 다르면 우선순위가 위에 있는 것을 따른다. 입력이 없거나, 다 읽고도 무엇을 어떻게 만들지 알 수 없으면 묻는다.
    - 입력으로 주어진 ticket 파일
-   - scratch 폴더의 resting.tmp.md
-   - scratch 폴더의 grill.tmp.md
+   - scratch 폴더의 design.tmp.md
+   - scratch 폴더의 requirement.tmp.md
+   - scratch 폴더의 analysis.tmp.md
    - 입력으로 주어진 요청 설명
-2. **ticket이 없으면 만든다.** (implement 기록이 여러 곳에 흩어지지 않고 ticket 파일 한 곳에 모이도록) split의 ticket 양식에 맞춘 ticket 하나를 `<scratch 폴더>/tickets/`에 만든다.
+2. **ticket이 없으면 만든다.** (build 기록이 여러 곳에 흩어지지 않고 ticket 파일 한 곳에 모이도록) split의 ticket 양식에 맞춘 ticket 하나를 `<scratch 폴더>/tickets/`에 만든다.
 3. 바꿀 코드와 그 호출부를 확인한다. 비슷한 기존 코드가 어떻게 되어 있는지 본다.
 4. **도메인 모델을 먼저 정한다.**
    - 도메인 모델은 코드 안에서 다루는 대상과 그 상태를 표현하는 구조다.
@@ -37,7 +38,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
    - 코드 수정 후 실패가 이번 변경 때문인지 가리는 데 사용한다.
    - 검증 명령어와 실제 동작 확인 방법을 CLAUDE.md, CI 설정, package manifest 등에서 찾아 ticket 파일의 `기준 상태`에 적는다. 없으면 묻는다.
    - 검증 명령어를 실행하고, 원래부터 실패하던 항목을 ticket 파일의 `기준 상태`에 적는다.
-   - implement를 다시 실행해도 ticket 파일의 `기준 상태`는 새로 적지 않는다.
+   - build를 다시 실행해도 ticket 파일의 `기준 상태`는 새로 적지 않는다.
 
 ### 2. 계획과 승인
 
@@ -107,8 +108,8 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ### 6. 기록 쓰기
 
-`tmp.md 기록 규칙`대로 ticket 파일에 implement 기록을 마저 쓰고, implement 1~5단계에서 한 일과 결과를 단계마다 덧붙인다.
+`tmp.md 기록 규칙`대로 ticket 파일에 build 기록을 마저 쓰고, build 단계에서 한 일과 결과를 단계마다 덧붙인다.
 
 ### 7. 종료
 
-ticket 파일 경로와 implement 기록을 간결하고 이해하기 쉽게 보고하고 멈춘다.
+ticket 파일 경로와 build 기록을 간결하고 이해하기 쉽게 보고하고 멈춘다.

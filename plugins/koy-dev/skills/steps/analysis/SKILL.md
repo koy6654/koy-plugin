@@ -1,12 +1,12 @@
 ---
-name: diagnose
+name: analysis
 description: 버그와 성능 저하를 진단한다. 빨갛게 실패하는 확인 루프를 먼저 만들고, 재현과 축소, 가설, 계측을 거쳐 원인을 고친다.
 argument-hint: "<증상, 재현 방법, 기대한 동작>"
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
-# diagnose
+# analysis
 
 버그 전용 step. **원인을 찾기 전에는 고치지 않는다.**
 
@@ -80,8 +80,8 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 - [ ] 회귀 테스트가 통과한다 (또는 테스트 지점이 없다는 사실이 적혀 있다)
 - [ ] `[DEBUG-` 접두어로 찾아서 계측을 전부 지웠다
 - [ ] 임시 실행 환경을 지웠다
-- [ ] 맞았던 가설을 diagnose.tmp.md에 적었다. 커밋 메시지에 그대로 쓸 수 있게 한다
+- [ ] 맞았던 가설을 analysis.tmp.md에 적었다. 커밋 메시지에 그대로 쓸 수 있게 한다
 
-기록 `<scratch 폴더>/diagnose.tmp.md`를 쓴다: 재현 명령과 출력, 축소한 재현, 가설 목록과 맞았던 가설, 원인, 수정 내용, 회귀 테스트(또는 테스트 지점이 없다는 사실), 맨 끝에 `물어본 것`(RULES.md `tmp.md 기록 규칙`의 `물어본 것` 형식).
+기록 `<scratch 폴더>/analysis.tmp.md`를 쓴다: 재현 명령과 출력, 축소한 재현, 가설 목록과 맞았던 가설, 원인, 수정 내용, 회귀 테스트(또는 테스트 지점이 없다는 사실), 맨 끝에 `물어본 것`(RULES.md `tmp.md 기록 규칙`의 `물어본 것` 형식).
 
 보고하고 멈춘다.

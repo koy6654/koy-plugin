@@ -19,7 +19,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ### 1. 원천 읽기
 
 - 돌아볼 세션의 기록. 지정이 없으면 현재 세션.
-- 그 scratch의 `<scratch 폴더>`의 기록. 특히 각 문서의 `물어본 것`과 `ready*.tmp.md`
+- 그 scratch의 `<scratch 폴더>`의 기록. 특히 각 문서의 `물어본 것`과 `verification*.tmp.md`
 - 이 프로젝트의 `CLAUDE.md`와 그것이 가리키는 문서
 
 ### 2. 문제점 찾기
@@ -30,7 +30,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 - 필요한 정보를 찾는 데 오래 걸렸거나 끝내 못 찾았다
 - skill이 지시한 step이 이 프로젝트에 맞지 않았다 (없는 대상을 찾았다, 불필요한 질문을 했다)
 - 사용자가 끼어들어 방향을 바로잡았다
-- 자동 검사가 잡을 수 있었던 실수가 ready까지 갔다
+- 자동 검사가 잡을 수 있었던 실수가 verification까지 갔다
 
 ### 3. 고칠 곳 정하기
 

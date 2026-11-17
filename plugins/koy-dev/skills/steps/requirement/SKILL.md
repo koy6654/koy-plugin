@@ -1,19 +1,19 @@
 ---
-name: grill
+name: requirement
 description: 모호한 요청을 design tree로 그려 라운드마다 질문하고, 공통 이해에 이르면 요구사항을 기록으로 남긴다.
 argument-hint: "<기획서 경로·링크 또는 요청 설명>"
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
-# grill
+# requirement
 
 요구사항 정리 전용 step. 이 step이 끝나면 **무엇을 만들지**가 정해져 있다. 코드는 고치지 않는다.
 
 ## 원칙
 
 - `${CLAUDE_PLUGIN_ROOT}/skills/RULES.md`를 읽고 따른다. 같은 대화에서 이미 읽었으면 건너뛴다.
-- 무엇을 만들지(동작, 범위, 완료 기준)만 묻는다. 어떻게 만들지(기술 선택, 구조, 데이터 설계, 테스트 방식)는 resting이 정한다.
+- 무엇을 만들지(동작, 범위, 완료 기준)만 묻는다. 어떻게 만들지(기술 선택, 구조, 데이터 설계, 테스트 방식)는 design이 정한다.
 - 질문에 필요한 정보를 찾지 못하거나 읽지 못하면, 그때 사용자에게 묻는다.
 
 ## 실행
@@ -48,7 +48,7 @@ The session is done when the frontier is empty: every branch of the design tree 
 
 ### 2. 기록 쓰기
 
-`tmp.md 기록 규칙`대로 grill.tmp.md를 쓴다.
+`tmp.md 기록 규칙`대로 requirement.tmp.md를 쓴다.
 
 ### 3. 종료
 

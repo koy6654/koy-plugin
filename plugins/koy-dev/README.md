@@ -8,14 +8,14 @@ Koy의 개발 방법론을 담은 Claude Code plugin. 프로젝트 정보와 ski
 
 | 구분 | 명령어 | 하는 일 |
 | --- | --- | --- |
-| flow | `/koy-dev:feature` | 기능 개발과 초기 구축: grill → resting → split, ticket마다 implement → ready |
-| flow | `/koy-dev:bugfix` | 버그 수정: diagnose → ready |
-| step | `/koy-dev:grill` | 요구사항 정리 |
-| step | `/koy-dev:resting` | 구현 명세 |
+| flow | `/koy-dev:feature` | 기능 개발과 초기 구축: requirement → design → split, ticket마다 build → verification |
+| flow | `/koy-dev:bugfix` | 버그 수정: analysis → build → verification |
+| step | `/koy-dev:requirement` | 요구사항 정리 |
+| step | `/koy-dev:design` | 구현 명세 |
 | step | `/koy-dev:split` | 새 컨텍스트 하나에 끝나는 ticket으로 나누기 |
-| step | `/koy-dev:implement` | 승인된 계획대로 구현 |
-| step | `/koy-dev:ready` | 커밋 전 검증 |
-| step | `/koy-dev:diagnose` | 버그 진단 |
+| step | `/koy-dev:build` | 승인된 계획대로 구현 |
+| step | `/koy-dev:verification` | 커밋 전 검증 |
+| step | `/koy-dev:analysis` | 버그 진단 |
 | step | `/koy-dev:retro` | 회고 |
 | step | `/koy-dev:close` | 커밋한 뒤 저장소 반영, ADR, scratch 정리 |
 
@@ -24,7 +24,7 @@ Koy의 개발 방법론을 담은 Claude Code plugin. 프로젝트 정보와 ski
 ```
 기능 개발:  /koy-dev:feature <요청>
 버그 수정:  /koy-dev:bugfix <증상>
-작은 수정:  /koy-dev:implement → /koy-dev:ready
+작은 수정:  /koy-dev:build → /koy-dev:verification
 이어하기:   /koy-dev:<flow> <scratch 폴더 경로>
 커밋한 뒤:  /koy-dev:retro (필요할 때) → /koy-dev:close
 ```
@@ -45,8 +45,8 @@ description: <저장소 한 줄 설명>
 ---
 
 ## feature
-grill → resting → split → implement → ready
+requirement → design → split → build → verification
 
 ## bugfix
-diagnose → ready
+analysis → build → verification
 ```

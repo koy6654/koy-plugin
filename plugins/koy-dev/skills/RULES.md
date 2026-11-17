@@ -38,9 +38,9 @@ step을 시작할 때마다 진행 줄을 마지막에 출력한다. 현재 step
 
 **koy-dev 진행상황**
 
-- [feature] grill → resting → split
-  - (01 <ticket 제목>) implement → ready
-  - (02 <ticket 제목>) **implement** → ready
+- [feature] requirement → design → split
+  - (01 <ticket 제목>) build → verification
+  - (02 <ticket 제목>) **build** → verification
 ```
 
 ## scratch 규칙
@@ -57,7 +57,7 @@ scratch 진행 중에는 CLAUDE.md, 저장소 문서, 용어집, ADR을 고치�
 
 ### tmp.md 기록 규칙
 
-step 하나가 끝날 때마다 scratch 폴더에 `<step>.tmp.md`를 하나 남긴다 (예: `grill.tmp.md`). 같은 step을 다시 실행하면 덮어쓴다.
+step 하나가 끝날 때마다 scratch 폴더에 `<step>.tmp.md`를 하나 남긴다 (예: `requirement.tmp.md`). 같은 step을 다시 실행하면 덮어쓴다.
 ticket을 입력으로 받은 step은 따로 기록을 만들지 않고, 그 ticket 파일 끝에 step 이름으로 덧붙인다. 다시 실행하면 그 step 부분만 바꾼다.
 다음 step, 새 세션, close가 이 기록과 코드만 보고 이어갈 수 있게 쓴다. 아래 여섯 칸은 반드시 포함하고, 필요한 설명은 덧붙인다.
 
