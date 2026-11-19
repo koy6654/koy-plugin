@@ -9,21 +9,21 @@
     "workflow",
     "flow",
     "step",
-    "requirement",
+    "scope",
     "build",
-    "verification",
-    "analysis",
+    "verify",
+    "debug",
     "close"
   ],
   "skills": [
     "./skills/flows/feature",
     "./skills/flows/bugfix",
-    "./skills/steps/requirement",
-    "./skills/steps/design",
+    "./skills/steps/scope",
+    "./skills/steps/spec",
     "./skills/steps/split",
     "./skills/steps/build",
-    "./skills/steps/verification",
-    "./skills/steps/analysis",
+    "./skills/steps/verify",
+    "./skills/steps/debug",
     "./skills/steps/retro",
     "./skills/steps/close"
   ]

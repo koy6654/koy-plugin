@@ -1,6 +1,6 @@
 ---
 name: bugfix
-description: 버그 수정. analysis → build → verification을 차례로 실행한다.
+description: 버그 수정. debug → build → verify를 차례로 실행한다.
 argument-hint: "<증상, 재현 방법, 기대한 동작 | 이어할 scratch 폴더 경로>"
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
@@ -14,9 +14,9 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ## step 순서
 
-1. analysis
+1. debug
 2. build
-3. verification: 기준 문서는 analysis.tmp.md다. 기준 문서 축에서 다음을 본다
+3. verify: 요구사항과 설계 대조에서 debug.tmp.md를 기준으로 다음도 본다
    - 회귀 테스트가 사용자가 말한 증상을 단언하는가 (테스트 지점이 없으면 그 사실이 적혀 있는가)
    - 원래 재현이 더 이상 재현되지 않는가
    - 원인을 고쳤는가, 증상만 막았는가
@@ -27,7 +27,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 - 인자가 scratch 폴더 경로면 그 폴더에서 순서 중 기록이 없는 첫 step부터 실행한다. 아니면 새 scratch로 처음부터 실행한다.
 - step마다 `${CLAUDE_PLUGIN_ROOT}/skills/steps/<step>/SKILL.md`를 읽고 따른다. 같은 세션이므로 모든 step이 이 scratch 폴더를 쓴다.
 - 승인은 build의 변경 계획 승인에서만 받는다. 그 외에는 멈추지 않고 다음 step으로 간다.
-- analysis가 확인 루프를 만들지 못해 멈추면 멈춘다. verification이 ❌면 멈춘다.
+- debug가 확인 루프를 만들지 못해 멈추면 멈춘다. verify가 ❌면 멈춘다.
 
 ## 종료
 

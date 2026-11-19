@@ -1,6 +1,6 @@
 ---
 name: split
-description: design.tmp.md를 새 컨텍스트 하나에 끝나는 ticket으로 나누고, ticket마다 선행 ticket을 적은 파일을 만든다.
+description: spec.tmp.md를 새 컨텍스트 하나에 끝나는 ticket으로 나누고, ticket마다 선행 ticket을 적은 파일을 만든다.
 argument-hint: "[scratch 폴더 경로 (같은 세션이면 생략)]"
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
@@ -8,7 +8,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 # split
 
-작업 나누기 전용 step. design.tmp.md를 **ticket**으로 나눈다. 코드는 고치지 않는다.
+작업 나누기 전용 step. spec.tmp.md를 **ticket**으로 나눈다. 코드는 고치지 않는다.
 
 ## 원칙
 
@@ -18,7 +18,7 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 ### 1. 불러오기
 
-`<scratch 폴더>/design.tmp.md`를 읽는다.
+`<scratch 폴더>/spec.tmp.md`를 읽는다.
 
 ### 2. 나누기
 
@@ -28,7 +28,7 @@ ticket을 나눌 때 다음을 지킨다.
 - **vertical slice로 나눈다.** vertical slice는 기능 하나를 온전한 흐름으로 구현하는 ticket이다. 일의 종류별로(데이터, 화면, 로직, 인터페이스, 테스트 등) 나누지 않는다.
   - 예외: 코드 여러 곳에서 쓰는 이름 하나를 바꾸는 것처럼 변경 하나가 코드 전체에 퍼지면, 새 이름 추가 → 쓰는 곳을 몇 번에 나눠 새 이름으로 바꿈 → 옛 이름 삭제 순서로 나눈다.
 - **독립적으로 확인할 수 있게 나눈다.** ticket은 선행 ticket 말고 다른 ticket에 기대지 않는다. 끝나면 그 ticket만으로 동작을 보여주거나 검증할 수 있다.
-- **컨텍스트 하나에 끝나게 나눈다.** 컨텍스트는 에이전트가 한 번에 기억하며 일할 수 있는 분량이다. ticket 파일과 design.tmp.md를 읽고 시작하여, 그 분량 안에서 끝낼 수 있는 크기로 나눈다.
+- **컨텍스트 하나에 끝나게 나눈다.** 컨텍스트는 에이전트가 한 번에 기억하며 일할 수 있는 분량이다. ticket 파일과 spec.tmp.md를 읽고 시작하여, 그 분량 안에서 끝낼 수 있는 크기로 나눈다.
 - **선행 ticket을 정한다.** 선행 ticket은 이 ticket보다 먼저 끝나야 하는 ticket이다. 없으면 바로 시작할 수 있다.
 
 ### 3. ticket 파일 쓰기

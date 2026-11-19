@@ -29,7 +29,7 @@ scratch 폴더의 모든 기록에서 아래를 모아 항목마다 반영할 �
 | 모을 것 | 어디서 | 반영할 곳 |
 | --- | --- | --- |
 | 물어본 것 | 모든 기록의 `물어본 것` | close가 항목마다 제안한다 (CLAUDE.md, 저장소 문서, lint·CI, GLOSSARY·ADR, 저장소 skill) |
-| 용어 | requirement.tmp.md `결정` 칸의 용어 | 저장소 용어집 (`GLOSSARY.md`, `CONTEXT.md` 등). 없으면 만들지 묻는다 |
+| 용어 | scope.tmp.md `결정` 칸의 용어 | 저장소 용어집 (`GLOSSARY.md`, `CONTEXT.md` 등). 없으면 만들지 묻는다 |
 | CLAUDE.md 후보 | 모든 기록의 `결정` 중 앞으로 계속 지킬 규칙 | CLAUDE.md |
 | retro 제안 | retro.tmp.md의 `문제점과 고칠 곳` | 항목의 `고칠 곳`. koy 공통 skill이면 직접 고치지 않고 koy 저장소에 올릴 이슈 초안을 만든다 |
 

@@ -4,10 +4,10 @@ koy의 일부 skill은 아래 오픈소스 프로젝트의 내용을 바탕으�
 
 | koy skill | 바탕으로 한 원본 |
 | --- | --- |
-| `requirement` | mattpocock/skills `skills/productivity/grilling` |
-| `design` (테스트 지점 하나 고르기, 구조가 다른 설계 대안 비교) | mattpocock/skills `skills/engineering/to-spec`, cursor/plugins `pstack/skills/architect` |
+| `scope` | mattpocock/skills `skills/productivity/grilling` |
+| `spec` (테스트 지점 하나 고르기, 구조가 다른 설계 대안 비교) | mattpocock/skills `skills/engineering/to-spec`, cursor/plugins `pstack/skills/architect` |
 | `split` | mattpocock/skills `skills/engineering/to-tickets` |
-| `analysis` | mattpocock/skills `skills/engineering/diagnosing-bugs` |
+| `debug` | mattpocock/skills `skills/engineering/diagnosing-bugs` |
 | `retro` | mattpocock/skills `skills/engineering/retro` |
 | `build` (실제 결과물로 증명, 도메인 모델 먼저, 작은 단위로 진행) | cursor/plugins `pstack/skills/principle-prove-it-works`, `principle-model-the-domain`, `principle-sequence-verifiable-units` |
 
