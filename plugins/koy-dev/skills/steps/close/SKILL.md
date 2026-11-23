@@ -6,6 +6,8 @@ disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
+<!-- TODO: 나중에 스킬 깎아야함 -->
+
 # close
 
 scratch를 끝내는 step. **커밋한 뒤** 실행한다. scratch 기록에서 오래 남길 것만 저장소로 옮기고, scratch 폴더를 지운다.

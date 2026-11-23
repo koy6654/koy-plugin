@@ -17,6 +17,7 @@ koy-dev step을 어떻게 실행하는지에 대한 규칙이다.
 step은 flow 안에서도, 단독으로도 실행된다.
 flow 안에서는 step이 끝나도 멈추지 않고 다음 step으로 간다.
 step은 다음 step을 고르거나 안내하지 않는다. 결과를 `<step>.tmp.md`에 남기고 보고한 뒤 멈춘다. 다음 step은 flow의 순서가 정한다.
+명령과 출력을 보여줄 때 비밀값은 `<REDACTED>`로 가린다.
 
 ### step 겹침 규칙
 

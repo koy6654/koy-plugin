@@ -6,6 +6,8 @@ disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
+<!-- TODO: 나중에 스킬 깎아야함 -->
+
 # retro
 
 만든 코드가 아니라 **개발 환경**을 고칠 거리를 찾는다. 다음 scratch에서 같은 실수가 나지 않게 하는 것이 목적이다. 커밋한 뒤, close 전에 실행한다.
