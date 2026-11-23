@@ -16,19 +16,8 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 
 1. debug
 2. build
-3. verify: 요구사항과 설계 대조에서 debug.tmp.md를 기준으로 다음도 본다
-   - 회귀 테스트가 사용자가 말한 증상을 단언하는가 (테스트 지점이 없으면 그 사실이 적혀 있는가)
-   - 원래 재현이 더 이상 재현되지 않는가
-   - 원인을 고쳤는가, 증상만 막았는가
-4. close: 커밋한 뒤 사용자가 실행한다. flow는 3번에서 끝난다
-
-## 실행
-
-- 인자가 scratch 폴더 경로면 그 폴더에서 순서 중 기록이 없는 첫 step부터 실행한다. 아니면 새 scratch로 처음부터 실행한다.
-- step마다 `${CLAUDE_PLUGIN_ROOT}/skills/steps/<step>/SKILL.md`를 읽고 따른다. 같은 세션이므로 모든 step이 이 scratch 폴더를 쓴다.
-- 승인은 build의 변경 계획 승인에서만 받는다. 그 외에는 멈추지 않고 다음 step으로 간다.
-- debug가 확인 루프를 만들지 못해 멈추면 멈춘다. verify가 ❌면 멈춘다.
+3. verify
 
 ## 종료
 
-커밋한 뒤 `/koy-dev:close`을 실행하라고 안내한다.
+커밋한 뒤 `/koy-dev:close`를 실행하라고 안내한다.

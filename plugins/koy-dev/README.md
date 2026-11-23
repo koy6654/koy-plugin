@@ -15,7 +15,7 @@ Koy의 개발 방법론을 담은 Claude Code plugin. 프로젝트 정보와 ski
 | step | `/koy-dev:split` | 새 컨텍스트 하나에 끝나는 ticket으로 나누기 |
 | step | `/koy-dev:build` | 승인된 계획대로 구현 |
 | step | `/koy-dev:verify` | 커밋 전 검증 |
-| step | `/koy-dev:debug` | 버그 진단 |
+| step | `/koy-dev:debug` | 버그 원인 분석 |
 | step | `/koy-dev:retro` | 회고 |
 | step | `/koy-dev:close` | 커밋한 뒤 저장소 반영, ADR, scratch 정리 |
 
