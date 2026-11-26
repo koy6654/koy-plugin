@@ -2,7 +2,6 @@
 name: retro
 description: scratch가 끝난 뒤 세션과 기록을 돌아보고, 문제점과 고칠 곳(저장소 본래의 자리, koy 공통 skill)을 retro.tmp.md에 남긴다. 반영은 close가 한다.
 argument-hint: "[scratch 폴더 경로 (같은 세션이면 생략)]"
-disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 

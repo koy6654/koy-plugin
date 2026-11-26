@@ -2,7 +2,6 @@
 name: scope
 description: 모호한 요청을 design tree로 그려 라운드마다 질문하고, 공통 이해에 이르면 요구사항을 기록으로 남긴다.
 argument-hint: "<기획서 경로·링크 또는 요청 설명>"
-disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 

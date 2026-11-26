@@ -2,7 +2,6 @@
 name: close
 description: 커밋한 뒤 scratch를 마무리한다. 물어본 것·용어·retro 제안을 저장소에 반영하고, ADR 후보를 ADR로 남기고, scratch 폴더를 지운다.
 argument-hint: "[scratch 폴더 경로 (같은 세션이면 생략)]"
-disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 

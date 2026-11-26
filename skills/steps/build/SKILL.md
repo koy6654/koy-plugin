@@ -2,7 +2,6 @@
 name: build
 description: 요청 설명·ticket 파일·scratch 폴더 경로를 받아 승인된 계획에 있는 것만 구현하고, 실제 동작으로 증명한다.
 argument-hint: "<요청 설명 | ticket 파일 경로 | scratch 폴더 경로 (같은 세션이면 생략)>"
-disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 

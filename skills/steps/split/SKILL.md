@@ -2,7 +2,6 @@
 name: split
 description: spec.tmp.md를 새 컨텍스트 하나에 끝나는 ticket으로 나누고, ticket마다 선행 ticket을 적은 파일을 만든다.
 argument-hint: "[scratch 폴더 경로 (같은 세션이면 생략)]"
-disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 

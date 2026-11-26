@@ -2,7 +2,6 @@
 name: feature
 description: 기능 개발과 초기 구축. scope → spec → split을 실행하고, ticket마다 build → verify를 차례로 실행한다.
 argument-hint: "<요청 | 이어할 scratch 폴더 경로>"
-disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 

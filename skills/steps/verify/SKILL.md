@@ -2,7 +2,6 @@
 name: verify
 description: 커밋 전에 "규칙을 지켰나"와 "요구사항과 설계대로 만들었나"를 나눠 검증한다. 고치지 않고 보고만 한다.
 argument-hint: "[scratch 폴더 경로 또는 ticket 파일 경로 (같은 세션이면 생략)]"
-disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 

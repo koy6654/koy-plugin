@@ -2,7 +2,6 @@
 name: debug
 description: 버그와 성능 저하의 원인을 찾는다. 실패하는 확인 루프를 먼저 만들고, 재현 케이스 확정, 가설 세우기와 확인을 거쳐 원인과 회귀 테스트 지점을 남긴다.
 argument-hint: "<증상, 재현 방법, 기대한 동작>"
-disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 

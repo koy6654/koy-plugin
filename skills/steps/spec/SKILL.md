@@ -2,7 +2,6 @@
 name: spec
 description: scope.tmp.md의 `결정`을 코드와 설계 근거자료에 대조해 어떻게 만들지 정하고, 구현 명세를 남긴다.
 argument-hint: "[scratch 폴더 경로 (같은 세션이면 생략)]"
-disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/skills/**)
 ---
 
